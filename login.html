@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Express Logistics Limited | Admin Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            Express Logistics Limited
+        </div>
+
+        <nav>
+            <a href="index.html">Tracking Page</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="login-section">
+
+            <div class="login-card">
+
+                <p class="small-title">
+                    EXPRESS LOGISTICS LIMITED
+                </p>
+
+                <h1>Admin Login</h1>
+
+                <p class="login-description">
+                    Sign in to manage shipments.
+                </p>
+
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="admin-button"
+                    >
+                        Sign In
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="loginMessage"
+                    class="admin-message hidden"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <h3>Express Logistics Limited</h3>
+
+        <p>
+            Secure Administration Area
+        </p>
+
+    </footer>
+
+
+    <script src="login.js"></script>
+
+</body>
+</html>

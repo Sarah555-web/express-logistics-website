@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Express Logistics Limited | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <button id="logoutButton" class="logout-button">
+    Logout
+</button>
+        <div class="logo">
+            Express Logistics Limited
+        </div>
+
+        <nav>
+            <a href="index.html">Tracking Page</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="admin-hero">
+
+            <div>
+                <p class="small-title">EXPRESS LOGISTICS LIMITED</p>
+
+                <h1>Shipment Management</h1>
+
+                <p>
+                    Create and manage customer shipments.
+                </p>
+            </div>
+
+        </section>
+
+
+        <section class="admin-section">
+
+            <div class="admin-card">
+
+                <h2>Create New Shipment</h2>
+
+                <p class="admin-description">
+                    Enter the shipment information below.
+                </p>
+
+
+                <form id="shipmentForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="senderName">
+                                Sender Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="senderName"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="senderPhone">
+                                Sender Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                id="senderPhone"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="receiverName">
+                                Receiver Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="receiverName"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="receiverPhone">
+                                Receiver Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                id="receiverPhone"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="origin">
+                                Origin
+                            </label>
+
+                            <input
+                                type="text"
+                                id="origin"
+                                placeholder="e.g. Oslo, Norway"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="destination">
+                                Destination
+                            </label>
+
+                            <input
+                                type="text"
+                                id="destination"
+                                placeholder="e.g. Washington, USA"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="currentLocation">
+                                Current Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="currentLocation"
+                                placeholder="e.g. Oslo, Norway"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="status">
+                                Shipment Status
+                            </label>
+
+                            <select id="status" required>
+
+                                <option value="Registered">
+                                    Registered
+                                </option>
+
+                                <option value="Picked Up">
+                                    Picked Up
+                                </option>
+
+                                <option value="In Transit">
+                                    In Transit
+                                </option>
+
+                                <option value="At Facility">
+                                    At Facility
+                                </option>
+
+                                <option value="Out for Delivery">
+                                    Out for Delivery
+                                </option>
+
+                                <option value="Delivered">
+                                    Delivered
+                                </option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="weight">
+                                Weight (kg)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="weight"
+                                step="0.1"
+                                min="0"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="estimatedDelivery">
+                                Estimated Delivery
+                            </label>
+
+                            <input
+                                type="date"
+                                id="estimatedDelivery"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label for="description">
+                                Shipment Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                rows="4"
+                                placeholder="e.g. 2 suitcases and 1 box"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="admin-button"
+                    >
+                        Create Shipment
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="adminMessage"
+                    class="admin-message hidden"
+                ></div>
+
+            </div>
+
+        </section>
+<section class="admin-section">
+
+    <div class="admin-card">
+
+        <h2>Manage Shipment</h2>
+
+        <p class="admin-description">
+            Update the status and current location of an existing shipment.
+        </p>
+
+        <form id="updateShipmentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="updateTrackingNumber">
+                        Tracking Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="updateTrackingNumber"
+                        placeholder="e.g. EXL-2026-000002"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="updateStatus">
+                        Shipment Status
+                    </label>
+
+                    <select id="updateStatus" required>
+
+                        <option value="Registered">
+                            Registered
+                        </option>
+
+                        <option value="Picked Up">
+                            Picked Up
+                        </option>
+
+                        <option value="In Transit">
+                            In Transit
+                        </option>
+
+                        <option value="At Facility">
+                            At Facility
+                        </option>
+
+                        <option value="Out for Delivery">
+                            Out for Delivery
+                        </option>
+
+                        <option value="Delivered">
+                            Delivered
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="updateLocation">
+                        Current Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="updateLocation"
+                        placeholder="e.g. Frankfurt, Germany"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="admin-button"
+            >
+                Update Shipment
+            </button>
+
+        </form>
+
+
+        <div
+            id="updateMessage"
+            class="admin-message hidden"
+        ></div>
+
+    </div>
+
+</section>
+<section class="admin-section">
+
+    <div class="admin-card">
+
+        <h2>All Shipments</h2>
+
+        <p class="admin-description">
+            View all registered shipments.
+        </p>
+
+        <div class="shipment-table-container">
+
+            <table class="shipment-table">
+
+                <thead>
+                    <tr>
+                        <th>Tracking Number</th>
+                        <th>Receiver</th>
+                        <th>Status</th>
+                        <th>Current Location</th>
+                    </tr>
+                </thead>
+
+                <tbody id="shipmentList">
+
+                    <tr>
+                        <td colspan="4">
+                            Loading shipments...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+    </main>
+
+
+    <footer>
+
+        <h3>Express Logistics Limited</h3>
+
+        <p>
+            Shipment Management System
+        </p>
+
+    </footer>
+<script src="admin.js"></script>
+</body>
+</html>
