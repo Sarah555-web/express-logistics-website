@@ -11,18 +11,42 @@
 
 <body>
 
-    <header>
-        <button id="logoutButton" class="logout-button">
-    Logout
-</button>
-        <div class="logo">
-            Express Logistics Limited
+    <header class="admin-header">
+
+    <div class="admin-brand">
+
+        <div class="admin-logo">
+            🚚
         </div>
 
-        <nav>
-            <a href="index.html">Tracking Page</a>
-        </nav>
-    </header>
+        <div class="admin-brand-text">
+            <h1>
+                EXPRESS LOGISTICS
+                <span>LIMITED</span>
+            </h1>
+
+            <p>ADMINISTRATION PANEL</p>
+        </div>
+
+    </div>
+
+
+    <div class="admin-header-right">
+
+        <a href="index.html" class="admin-view-site">
+            🌐 View Tracking Site
+        </a>
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
 
 
     <main>
@@ -107,7 +131,43 @@
                                 required
                             >
                         </div>
+<div class="form-group">
+    <label for="senderEmail">
+        Sender Email Address
+    </label>
 
+    <input
+        type="email"
+        id="senderEmail"
+        placeholder="sender@example.com"
+    >
+</div>
+
+
+<div class="form-group">
+    <label for="receiverEmail">
+        Receiver Email Address
+    </label>
+
+    <input
+        type="email"
+        id="receiverEmail"
+        placeholder="receiver@example.com"
+    >
+</div>
+
+
+<div class="form-group">
+    <label for="receiverAddress">
+        Receiver Home Address
+    </label>
+
+    <input
+        type="text"
+        id="receiverAddress"
+        placeholder="Enter receiver's full home address"
+    >
+</div>
 
                         <div class="form-group">
                             <label for="origin">
@@ -227,7 +287,105 @@
                             ></textarea>
 
                         </div>
+<div class="form-group">
+    <label for="shippingCost">
+        Shipping Cost
+    </label>
 
+    <input
+        type="number"
+        id="shippingCost"
+        step="0.01"
+        min="0"
+        placeholder="0.00"
+        required
+    >
+</div>
+
+
+<div class="form-group">
+    <label for="amountPaid">
+        Amount Paid
+    </label>
+
+    <input
+        type="number"
+        id="amountPaid"
+        step="0.01"
+        min="0"
+        value="0"
+        placeholder="0.00"
+        required
+    >
+</div>
+
+
+<div class="form-group">
+    <label for="paymentMethod">
+        Payment Method
+    </label>
+
+    <select id="paymentMethod" required>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="Card">Card</option>
+        <option value="Cash">Cash</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+
+
+<div class="form-group">
+    <label for="paymentType">
+        Payment Type
+    </label>
+
+    <select id="paymentType" required>
+        <option value="Full Payment">Full Payment</option>
+        <option value="Pay As You Go">Pay As You Go</option>
+    </select>
+</div>
+
+
+<div class="form-group">
+    <label for="paymentStatus">
+        Payment Status
+    </label>
+
+    <select id="paymentStatus" required>
+        <option value="Paid">Paid</option>
+        <option value="Partially Paid">Partially Paid</option>
+        <option value="Pending">Pending</option>
+    </select>
+</div>
+
+
+<div class="form-group">
+    <label for="currency">
+        Currency
+    </label>
+
+    <select id="currency" required>
+        <option value="EUR">EUR (€)</option>
+        <option value="USD">USD ($)</option>
+        <option value="GBP">GBP (£)</option>
+        <option value="NGN">NGN (₦)</option>
+        <option value="NOK">NOK (kr)</option>
+    </select>
+</div>
+
+
+<div class="form-group">
+    <label for="balance">
+        Balance Remaining
+    </label>
+
+    <input
+        type="text"
+        id="balance"
+        value="0.00"
+        readonly
+    >
+</div>
                     </div>
 
 
@@ -245,7 +403,13 @@
                     id="adminMessage"
                     class="admin-message hidden"
                 ></div>
-
+<button
+    type="button"
+    id="receiptButton"
+    class="admin-button"
+>
+    Generate Receipt
+</button>
             </div>
 
         </section>
@@ -392,7 +556,96 @@
 </section>
     </main>
 
+<!-- =========================================
+     CUSTOMER SUPPORT
+========================================= -->
 
+<section class="admin-section" id="adminSupportSection">
+
+    <div class="section-header">
+
+        <h2>Customer Support</h2>
+
+        <p>
+            View and respond to customer support conversations.
+        </p>
+
+    </div>
+
+
+    <div class="support-admin-container">
+
+        <!-- CONVERSATIONS -->
+
+        <div class="support-conversations">
+
+            <h3>Conversations</h3>
+
+            <div
+                id="adminSupportConversations"
+                class="admin-support-conversations"
+            >
+
+                <p>
+                    Loading conversations...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHAT -->
+
+        <div class="support-admin-chat">
+
+            <h3 id="adminSupportCustomerName">
+                Select a conversation
+            </h3>
+
+
+            <p id="adminSupportTracking">
+            </p>
+
+
+            <div
+                id="adminSupportMessages"
+                class="admin-support-messages"
+            >
+
+                <p>
+                    Select a customer conversation
+                    to view messages.
+                </p>
+
+            </div>
+
+
+            <div
+                class="admin-support-reply"
+                id="adminSupportReplyBox"
+            >
+
+                <input
+                    type="text"
+                    id="adminSupportMessageInput"
+                    placeholder="Type your reply..."
+                >
+
+                <button
+                    type="button"
+                    id="adminSendSupportMessage"
+                >
+                    Send Reply
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
     <footer>
 
         <h3>Express Logistics Limited</h3>
@@ -402,6 +655,7 @@
         </p>
 
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="admin.js"></script>
 </body>
 </html>

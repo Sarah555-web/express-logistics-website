@@ -1,60 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Express Logistics Limited | Track Shipment</title>
+    <title>Express Logistics Limited | Global Shipping & Tracking</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="company-brand">
-    <div class="company-logo">EL</div>
+    <!-- =====================================================
+         TOP BAR
+         ===================================================== -->
 
-    <div>
-        <h1>Express Logistics Limited</h1>
-        <p>Reliable. Secure. Delivered.</p>
-    </div>
-</div>
-        <div class="logo">
-            Express Logistics Limited
+    <div class="top-bar">
+
+        <div class="top-bar-left">
+            <span>✉ support@expresslogistics.com</span>
+            <span>☎ +47 4587 2563</span>
+            <span>📍 Oslo, Norway</span>
         </div>
 
-        <nav>
-            <a href="#">Home</a>
+        <div class="top-bar-right">
+            <span>🇬🇧 English</span>
             <a href="#tracking">Track Shipment</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#contact">Customer Support</a>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN HEADER
+         ===================================================== -->
+
+    <header>
+
+        <div class="company-brand">
+
+            <div class="company-logo">
+                <span>🌐</span>
+            </div>
+
+            <div class="brand-text">
+
+                <h1>
+                    EXPRESS
+                    <span>LOGISTICS LIMITED</span>
+                </h1>
+
+                <p>
+                    Fast · Secure · Reliable
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#" class="active">
+                Home
+            </a>
+
+            <a href="#tracking">
+                Track Shipment
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#about">
+                About Us
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
         </nav>
+
+
+        <a href="#tracking" class="header-track-button">
+            🚚 Track Your Package
+            <span>→</span>
+        </a>
+
     </header>
 
 
     <main>
 
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
         <section class="hero">
+
+            <div class="hero-background-shipping">
+
+                <div class="hero-glow hero-glow-one"></div>
+                <div class="hero-glow hero-glow-two"></div>
+
+            </div>
+
+
             <div class="hero-content">
 
-                <p class="small-title">EXPRESS LOGISTICS LIMITED</p>
+                <div class="hero-text">
 
-                <h1>
-                    Fast. Reliable.<br>
-                    Delivered.
-                </h1>
+                    <div class="hero-badge">
+                        ✈ GLOBAL SHIPPING PARTNER
+                    </div>
 
-                <p>
-                    Track your shipment and stay updated on its journey
-                    from pickup to delivery.
-                </p>
+                    <h2>
+                        Your Cargo,
+                        <span>Our Priority!</span>
+                    </h2>
+
+                    <h3>
+                        Fast. Secure. Reliable.
+                    </h3>
+
+                    <p>
+                        We deliver your packages safely, on time,
+                        and anywhere in the world.
+                    </p>
+
+
+                    <a href="#tracking" class="hero-track-button">
+                        Track Your Shipment
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+
+                <!-- Tracking card -->
 
                 <div class="tracking-box" id="tracking">
 
-                    <h2>Track Your Shipment</h2>
+                    <div class="tracking-icon">
+                        📦
+                    </div>
 
-                    <p>Enter your tracking number below</p>
+                    <h2>
+                        Track Your Shipment
+                    </h2>
+
+                    <p>
+                        Enter your tracking number below to get
+                        the latest shipment updates.
+                    </p>
+
 
                     <div class="tracking-form">
 
@@ -66,15 +170,129 @@
 
                         <button onclick="trackShipment()">
                             Track Shipment
+                            <span>→</span>
                         </button>
 
+                    </div>
+
+
+                    <div class="tracking-security">
+                        🛡 100% Safe & Secure
                     </div>
 
                 </div>
 
             </div>
+
         </section>
 
+
+        <!-- =================================================
+             BENEFITS
+             ================================================= -->
+
+        <section class="benefits">
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🚚
+                </div>
+
+                <div>
+                    <strong>
+                        Worldwide Delivery
+                    </strong>
+
+                    <span>
+                        To over 50+ countries
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🌐
+                </div>
+
+                <div>
+                    <strong>
+                        Real-Time Tracking
+                    </strong>
+
+                    <span>
+                        Live shipment updates
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🛡
+                </div>
+
+                <div>
+                    <strong>
+                        Secure & Insured
+                    </strong>
+
+                    <span>
+                        Your cargo is protected
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🕐
+                </div>
+
+                <div>
+                    <strong>
+                        On-Time Delivery
+                    </strong>
+
+                    <span>
+                        We keep our promise
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🎧
+                </div>
+
+                <div>
+                    <strong>
+                        24/7 Support
+                    </strong>
+
+                    <span>
+                        Always here to help
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TRACKING RESULT
+             ================================================= -->
 
         <section class="result-section">
 
@@ -82,111 +300,273 @@
                 Searching for your shipment...
             </div>
 
+
             <div id="error" class="error hidden"></div>
+
 
             <div id="shipmentResult" class="shipment-result hidden">
 
-                <h2>Shipment Details</h2>
-<div class="tracking-timeline">
+                <div class="result-heading">
 
-    <div class="timeline-step" data-status="Registered">
-        <div class="timeline-icon">1</div>
-        <div class="timeline-content">
-            <strong>Shipment Registered</strong>
-            <span>Your shipment has been registered.</span>
-        </div>
-    </div>
+                    <div>
+                        <span class="section-label">
+                            SHIPMENT STATUS
+                        </span>
 
-    <div class="timeline-step" data-status="Picked Up">
-        <div class="timeline-icon">2</div>
-        <div class="timeline-content">
-            <strong>Picked Up</strong>
-            <span>Your shipment has been collected.</span>
-        </div>
-    </div>
+                        <h2>
+                            Track in
+                            <span>Real-Time</span>
+                        </h2>
+                    </div>
 
-    <div class="timeline-step" data-status="In Transit">
-        <div class="timeline-icon">3</div>
-        <div class="timeline-content">
-            <strong>In Transit</strong>
-            <span>Your shipment is on its way.</span>
-        </div>
-    </div>
+                </div>
 
-    <div class="timeline-step" data-status="At Facility">
-        <div class="timeline-icon">4</div>
-        <div class="timeline-content">
-            <strong>At Facility</strong>
-            <span>Your shipment has arrived at a logistics facility.</span>
-        </div>
-    </div>
 
-    <div class="timeline-step" data-status="Out for Delivery">
-        <div class="timeline-icon">5</div>
-        <div class="timeline-content">
-            <strong>Out for Delivery</strong>
-            <span>Your shipment is on the way to the recipient.</span>
-        </div>
-    </div>
+                <!-- Existing tracking timeline -->
 
-    <div class="timeline-step" data-status="Delivered">
-        <div class="timeline-icon">6</div>
-        <div class="timeline-content">
-            <strong>Delivered</strong>
-            <span>Your shipment has been delivered.</span>
-        </div>
-    </div>
+                <div class="tracking-timeline">
 
-</div>
+                    <div
+                        class="timeline-step"
+                        data-status="Registered"
+                    >
+
+                        <div class="timeline-icon">
+                            1
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>
+                                Shipment Registered
+                            </strong>
+
+                            <span>
+                                Your shipment has been registered.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-step"
+                        data-status="Picked Up"
+                    >
+
+                        <div class="timeline-icon">
+                            2
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>
+                                Picked Up
+                            </strong>
+
+                            <span>
+                                Your shipment has been collected.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-step"
+                        data-status="In Transit"
+                    >
+
+                        <div class="timeline-icon">
+                            3
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>
+                                In Transit
+                            </strong>
+
+                            <span>
+                                Your shipment is on its way.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-step"
+                        data-status="At Facility"
+                    >
+
+                        <div class="timeline-icon">
+                            4
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>
+                                At Facility
+                            </strong>
+
+                            <span>
+                                Your shipment has arrived at a
+                                logistics facility.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-step"
+                        data-status="Out for Delivery"
+                    >
+
+                        <div class="timeline-icon">
+                            5
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>
+                                Out for Delivery
+                            </strong>
+
+                            <span>
+                                Your shipment is on the way
+                                to the recipient.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-step"
+                        data-status="Delivered"
+                    >
+
+                        <div class="timeline-icon">
+                            6
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>
+                                Delivered
+                            </strong>
+
+                            <span>
+                                Your shipment has been delivered.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Shipment information -->
+
                 <div class="shipment-grid">
 
                     <div>
-                        <span>Tracking Number</span>
+                        <span>
+                            Tracking Number
+                        </span>
+
                         <strong id="resultTracking"></strong>
                     </div>
 
-                    <div>
-                        <span>Status</span>
-                        <strong id="resultStatus" class="status-badge"></strong>
-                    </div>
 
                     <div>
-                        <span>Sender</span>
+                        <span>
+                            Status
+                        </span>
+
+                        <strong
+                            id="resultStatus"
+                            class="status-badge"
+                        ></strong>
+                    </div>
+
+
+                    <div>
+                        <span>
+                            Sender
+                        </span>
+
                         <strong id="resultSender"></strong>
                     </div>
 
+
                     <div>
-                        <span>Receiver</span>
+                        <span>
+                            Receiver
+                        </span>
+
                         <strong id="resultReceiver"></strong>
                     </div>
 
+
                     <div>
-                        <span>Origin</span>
+                        <span>
+                            Origin
+                        </span>
+
                         <strong id="resultOrigin"></strong>
                     </div>
 
+
                     <div>
-                        <span>Destination</span>
+                        <span>
+                            Destination
+                        </span>
+
                         <strong id="resultDestination"></strong>
                     </div>
 
-<div>
-    <span>Current Location</span>
-    <strong id="resultLocation"></strong>
-</div>
 
                     <div>
-                        <span>Weight</span>
+                        <span>
+                            Current Location
+                        </span>
+
+                        <strong id="resultLocation"></strong>
+                    </div>
+
+
+                    <div>
+                        <span>
+                            Weight
+                        </span>
+
                         <strong id="resultWeight"></strong>
                     </div>
 
+
                     <div>
-                        <span>Description</span>
+                        <span>
+                            Description
+                        </span>
+
                         <strong id="resultDescription"></strong>
                     </div>
 
+
                     <div>
-                        <span>Estimated Delivery</span>
+                        <span>
+                            Estimated Delivery
+                        </span>
+
                         <strong id="resultDelivery"></strong>
                     </div>
 
@@ -197,79 +577,578 @@
         </section>
 
 
-        <section id="services" class="services">
+        <!-- =================================================
+             WHY CHOOSE US
+             ================================================= -->
 
-            <h2>Our Services</h2>
+        <section class="why-us" id="about">
 
-            <div class="service-grid">
+            <div class="why-us-content">
 
-                <div class="service-card">
-                    <h3>Express Delivery</h3>
+                <div>
+
+                    <span class="section-label">
+                        WHY CHOOSE US?
+                    </span>
+
+                    <h2>
+                        We Connect
+                        <span>The World.</span>
+                    </h2>
+
                     <p>
-                        Fast and reliable delivery for important shipments.
+                        From local deliveries to international
+                        shipments, Express Logistics Limited
+                        provides reliable logistics solutions
+                        designed around your needs.
                     </p>
+
+                    <ul>
+
+                        <li>
+                            ✓ Professional shipment handling
+                        </li>
+
+                        <li>
+                            ✓ Reliable international delivery
+                        </li>
+
+                        <li>
+                            ✓ Easy shipment tracking
+                        </li>
+
+                        <li>
+                            ✓ Dedicated customer support
+                        </li>
+
+                    </ul>
+
                 </div>
 
-                <div class="service-card">
-                    <h3>Shipment Tracking</h3>
-                    <p>
-                        Monitor your shipment from pickup to destination.
-                    </p>
-                </div>
 
-                <div class="service-card">
-                    <h3>Worldwide Logistics</h3>
-                    <p>
-                        Reliable logistics solutions for local and international shipments.
-                    </p>
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <strong>
+                            10,000+
+                        </strong>
+
+                        <span>
+                            Packages Delivered
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <strong>
+                            99.9%
+                        </strong>
+
+                        <span>
+                            Success Rate
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <strong>
+                            50+
+                        </strong>
+
+                        <span>
+                            Countries
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <strong>
+                            24/7
+                        </strong>
+
+                        <span>
+                            Customer Support
+                        </span>
+
+                    </div>
+
                 </div>
 
             </div>
 
         </section>
-<section class="shipment-history-section">
 
-    <div class="shipment-history-card">
 
-        <h2>Shipment History</h2>
+        <!-- =================================================
+             SERVICES
+             ================================================= -->
 
-        <p class="history-subtitle">
-            Latest shipment activity
-        </p>
+        <section id="services" class="services">
 
-        <div id="shipmentHistory">
+            <div class="section-heading">
 
-            <p class="history-empty">
-                Shipment history will appear here.
-            </p>
+                <span class="section-label">
+                    OUR SERVICES
+                </span>
 
-        </div>
+                <h2>
+                    Professional Logistics
+                    <span>Solutions</span>
+                </h2>
 
-    </div>
-<button id="printTrackingButton" class="print-tracking-button">
-    Print Tracking Details
-</button>
+                <p>
+                    Reliable logistics services for your
+                    local and international shipping needs.
+                </p>
 
-</section>
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <div class="service-card">
+
+                    <div class="service-image service-air">
+                        ✈️
+                    </div>
+
+                    <div class="service-card-content">
+
+                        <h3>
+                            Air Freight
+                        </h3>
+
+                        <p>
+                            Fast international shipping
+                            for time-sensitive cargo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-image service-sea">
+                        🚢
+                    </div>
+
+                    <div class="service-card-content">
+
+                        <h3>
+                            Sea Freight
+                        </h3>
+
+                        <p>
+                            Cost-effective solutions for
+                            large international shipments.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-image service-land">
+                        🚚
+                    </div>
+
+                    <div class="service-card-content">
+
+                        <h3>
+                            Land Transport
+                        </h3>
+
+                        <p>
+                            Reliable road delivery for
+                            local and regional shipments.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-image service-cargo">
+                        📦
+                    </div>
+
+                    <div class="service-card-content">
+
+                        <h3>
+                            Cargo Handling
+                        </h3>
+
+                        <p>
+                            Professional handling and
+                            secure storage of your cargo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SHIPMENT HISTORY
+             ================================================= -->
+
+        <section class="shipment-history-section">
+
+            <div class="shipment-history-card">
+
+                <span class="section-label">
+                    TRACKING ACTIVITY
+                </span>
+
+                <h2>
+                    Shipment History
+                </h2>
+
+                <p class="history-subtitle">
+                    Latest shipment activity
+                </p>
+
+
+                <div id="shipmentHistory">
+
+                    <p class="history-empty">
+                        Shipment history will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="printTrackingButton"
+                class="print-tracking-button"
+            >
+                🖨 Print Tracking Details
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             CONFIDENCE CTA
+             ================================================= -->
+
+        <section class="confidence-section">
+
+            <div class="confidence-content">
+
+                <span class="section-label">
+                    EXPRESS LOGISTICS LIMITED
+                </span>
+
+                <h2>
+                    Ship With
+                    <span>Confidence.</span>
+                </h2>
+
+                <p>
+                    Wherever your shipment needs to go,
+                    we're ready to help move it forward.
+                </p>
+
+                <a
+                    href="#tracking"
+                    class="hero-track-button"
+                >
+                    Track Your Shipment →
+                </a>
+
+            </div>
+
+        </section>
+
     </main>
 
 
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
     <footer id="contact">
 
-        <h3>Express Logistics Limited</h3>
+        <div class="footer-main">
 
-        <p>
-            Reliable logistics and delivery services.
-        </p>
 
-        <p>
-            © 2026 Express Logistics Limited. All rights reserved.
-        </p>
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    🌐
+                </div>
+
+                <h3>
+                    EXPRESS
+                    <span>LOGISTICS LIMITED</span>
+                </h3>
+
+                <p>
+                    Fast · Secure · Reliable
+                </p>
+
+                <p class="footer-description">
+                    Reliable logistics and delivery services
+                    connecting people and businesses around
+                    the world.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="#">
+                    Home
+                </a>
+
+                <a href="#tracking">
+                    Track Shipment
+                </a>
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#about">
+                    About Us
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact Info
+                </h4>
+
+                <p>
+                    ✉ support@expresslogistics.com
+                </p>
+
+                <p>
+                    ☎ +47 4587 2563
+                </p>
+
+                <p>
+                    📍 Oslo, Norway
+                </p>
+
+            </div>
+
+
+            <div class="footer-column newsletter">
+
+                <h4>
+                    Newsletter
+                </h4>
+
+                <p>
+                    Subscribe for updates and offers.
+                </p>
+
+                <div class="newsletter-form">
+
+                    <input
+                        type="email"
+                        placeholder="Your email address"
+                    >
+
+                    <button>
+                        Subscribe
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Express Logistics Limited.
+                All rights reserved.
+            </p>
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms of Service
+                </a>
+
+                <a href="#">
+                    Cookie Policy
+                </a>
+
+            </div>
+
+        </div>
 
     </footer>
 
 
-    <script src="script.js"></script>
+    <!-- =====================================================
+         EXISTING SCRIPTS
+         ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<script src="script.js"></script>
+
+<script src="support.js"></script>
+
+    <!-- =====================================================
+         SUPPORT CHAT
+         ===================================================== -->
+
+    <button
+        id="supportChatButton"
+        class="support-chat-button"
+    >
+        💬 Contact Support
+    </button>
+
+
+    <div
+        id="supportChatBox"
+        class="support-chat-box"
+    >
+
+        <div class="support-chat-header">
+
+            <div>
+
+                <strong>
+                    Express Logistics Support
+                </strong>
+
+                <span id="supportStatus">
+                    ● Online
+                </span>
+
+            </div>
+
+            <button id="closeSupportChat">
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="supportChatMessages"
+            class="support-chat-messages"
+        >
+
+            <div class="support-welcome-message">
+
+                Hello! 👋
+                <br>
+
+                How can we help you today?
+
+            </div>
+
+        </div>
+
+
+        <div id="supportCustomerInfo">
+
+            <input
+                type="text"
+                id="supportCustomerName"
+                placeholder="Your name"
+            >
+
+            <input
+                type="text"
+                id="supportTrackingNumber"
+                placeholder="Tracking number (optional)"
+            >
+
+            <button id="startSupportChat">
+                Start Chat
+            </button>
+
+        </div>
+
+
+        <div
+            id="supportMessageArea"
+            class="support-message-area hidden"
+        >
+
+            <input
+                type="file"
+                id="supportAttachment"
+                hidden
+            >
+
+
+            <button
+                type="button"
+                id="supportAttachmentButton"
+                title="Attach file"
+            >
+                📎
+            </button>
+
+
+            <input
+                type="text"
+                id="supportMessageInput"
+                placeholder="Type your message..."
+            >
+
+
+            <button
+                type="button"
+                id="sendSupportMessage"
+            >
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
 
 </body>
+
 </html>
