@@ -382,6 +382,29 @@ if (error) {
 if (error) {
     throw error;
 }
+// Send email notification without changing the existing support chat
+try {
+    await fetch(
+        "https://uxcfvlbnrwcqfeudmpbg.supabase.co/functions/v1/swift-task",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: customerNameInput.value.trim(),
+                email: "sarahsoreng555@gmail.com",
+                message: message
+            })
+        }
+    );
+} catch (emailError) {
+    console.error(
+        "Email notification error:",
+        emailError
+    );
+}
+
 
 
 
