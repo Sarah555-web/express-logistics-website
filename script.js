@@ -779,3 +779,59 @@ if (trackingInput) {
     );
 
 }
+// ============================================================
+// TIMELINE STATUS FIX
+// Reads the existing shipment status and updates the timeline
+// ============================================================
+
+function updateShipmentTimeline(status) {
+    const timeline = document.querySelector('.tracking-timeline');
+
+    if (!timeline) return;
+
+    const steps = timeline.querySelectorAll('.timeline-step');
+
+    if (!steps.length) return;
+
+    const statusOrder = [
+        'Registered',
+        'Picked Up',
+        'In Transit',
+        'At Facility',
+        'Out for Delivery',
+        'Delivered'
+    ];
+
+    // Clean up the status coming from Supabase
+    const currentStatus = String(status || '').trim().toLowerCase();
+
+    let currentIndex = statusOrder.findIndex(
+        item => item.toLowerCase() === currentStatus
+    );
+
+    // If the status is not recognized, leave the timeline unchanged
+    if (currentIndex === -1) return;
+
+    steps.forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+
+        if (index < currentIndex) {
+            step.classList.add('completed');
+        } else if (index === currentIndex) {
+            step.classList.add('active');
+        }
+    });
+}
+
+
+// Keep the existing updateTimeline function working,
+// while making sure the stored Supabase status controls the timeline.
+const originalUpdateTimeline = window.updateTimeline;
+
+window.updateTimeline = function(status) {
+    if (typeof originalUpdateTimeline === 'function') {
+        originalUpdateTimeline(status);
+    }
+
+    updateShipmentTimeline(status);
+};
