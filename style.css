@@ -2955,3 +2955,17 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+/* Improve text readability over background image */
+body {
+    color: #061a33;
+}
+
+main p,
+main li {
+    color: #061a33;
+}
+
+section h2,
+section h3 {
+    color: #04152b;
+}
