@@ -648,13 +648,21 @@ if (file.type.startsWith("image/")) {
         document.createElement("img");
 
     const {
-        data: publicUrlData
-    } = supportClient.storage
-        .from("support_attachments")
-        .getPublicUrl(filePath);
+    data: signedUrlData,
+    error: signedUrlError
+} = await supportClient.storage
+    .from("support_attachments")
+    .createSignedUrl(
+        filePath,
+        60 * 60
+    );
 
-    image.src =
-        publicUrlData.publicUrl;
+if (signedUrlError) {
+    throw signedUrlError;
+}
+
+image.src =
+    signedUrlData.signedUrl;
 
     image.alt = file.name;
 
