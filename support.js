@@ -525,6 +525,138 @@ if (attachmentButton && attachmentInput) {
         }
     );
 }
+       attachmentInput.addEventListener(
+    "change",
+    async function () {
+        const files = Array.from(
+            attachmentInput.files
+        );
+
+        if (!files.length) {
+            return;
+        }
+
+        if (!currentConversation) {
+            alert("Please start the support chat first.");
+            attachmentInput.value = "";
+            return;
+        }
+
+        for (const file of files) {
+            if (file.size > 10 * 1024 * 1024) {
+                alert(
+                    file.name +
+                    " is too large. Maximum file size is 10 MB."
+                );
+                continue;
+            }
+
+            try {
+                const {
+                    data: {
+                        session
+                    }
+                } =
+                    await supportClient.auth.getSession();
+
+                if (!session) {
+                    throw new Error(
+                        "Support session expired."
+                    );
+                }
+
+                const fileExtension =
+                    file.name.includes(".")
+                        ? file.name
+                              .split(".")
+                              .pop()
+                              .toLowerCase()
+                        : "";
+
+                const filePath =
+                    session.user.id +
+                    "/" +
+                    currentConversation.id +
+                    "/" +
+                    Date.now() +
+                    "-" +
+                    Math.random()
+                        .toString(36)
+                        .substring(2) +
+                    (fileExtension
+                        ? "." + fileExtension
+                        : "");
+
+                const {
+                    error: uploadError
+                } = await supportClient.storage
+                    .from("support_attachments")
+                    .upload(
+                        filePath,
+                        file,
+                        {
+                            contentType:
+                                file.type ||
+                                "application/octet-stream",
+                            upsert: false
+                        }
+                    );
+if (uploadError) {
+    throw uploadError;
+}
+
+/* SAVE ATTACHMENT DETAILS */
+const {
+    error: attachmentRecordError
+} = await supportClient
+    .from("support_attachments")
+    .insert({
+        conversation_id:
+            currentConversation.id,
+
+        message_id:
+            null,
+
+        file_name:
+            file.name,
+
+        file_path:
+            filePath,
+
+        file_type:
+            file.type ||
+            "application/octet-stream",
+
+        file_size:
+            file.size
+    });
+
+if (attachmentRecordError) {
+    throw attachmentRecordError;
+}
+
+alert(
+    file.name +
+    " uploaded successfully."
+);
+                
+
+            } catch (error) {
+                console.error(
+                    "Attachment upload error:",
+                    error
+                );
+
+                alert(
+                    error.message ||
+                    "Unable to upload attachment."
+                );
+            }
+        }
+
+        attachmentInput.value = "";
+    }
+);
        
 
         /* =================================
