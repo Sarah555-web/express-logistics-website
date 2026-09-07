@@ -2956,3 +2956,11 @@ section h2,
 section h3 {
     color: #04152b;
 }
+/* Restore hero heading colors */
+.hero-text h2 {
+    color: #ffffff !important;
+}
+
+.hero-text h2 span {
+    color: #ff8a00 !important;
+}
