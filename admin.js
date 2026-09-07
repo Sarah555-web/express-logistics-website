@@ -2242,6 +2242,7 @@ async function loadSupportMessages(
 
 
     data.forEach(function (message) {
+        
 
         const messageElement =
             document.createElement("div");
@@ -2288,7 +2289,171 @@ async function loadSupportMessages(
         );
 
     });
+/* =========================================
+   LOAD SUPPORT ATTACHMENTS
+========================================= */
 
+const {
+    data: attachments,
+    error: attachmentsError
+} = await adminSupportClient
+    .from("support_attachments")
+    .select("*")
+    .eq(
+        "conversation_id",
+        conversationId
+    )
+    .order(
+        "created_at",
+        {
+            ascending: true
+        }
+    );
+
+if (attachmentsError) {
+
+    console.error(
+        "Support attachments error:",
+        attachmentsError
+    );
+
+} else if (
+    attachments &&
+    attachments.length
+) {
+
+    for (const attachment of attachments) {
+
+        const attachmentElement =
+            document.createElement("div");
+
+        attachmentElement.className =
+            "admin-support-attachment";
+
+        attachmentElement.style.marginTop =
+            "10px";
+
+        attachmentElement.style.padding =
+            "10px";
+
+        attachmentElement.style.background =
+            "#ffffff";
+
+        attachmentElement.style.borderRadius =
+            "10px";
+
+        attachmentElement.style.border =
+            "1px solid #e5e7eb";
+
+
+        const {
+            data: signedData,
+            error: signedError
+        } = await adminSupportClient.storage
+            .from("support_attachments")
+            .createSignedUrl(
+                attachment.file_path,
+                60 * 60
+            );
+
+
+        if (
+            !signedError &&
+            signedData &&
+            signedData.signedUrl
+        ) {
+
+            if (
+                attachment.file_type &&
+                attachment.file_type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                const image =
+                    document.createElement("img");
+
+                image.src =
+                    signedData.signedUrl;
+
+                image.alt =
+                    attachment.file_name;
+
+                image.style.maxWidth =
+                    "220px";
+
+                image.style.maxHeight =
+                    "220px";
+
+                image.style.borderRadius =
+                    "8px";
+
+                image.style.display =
+                    "block";
+
+                image.style.cursor =
+                    "pointer";
+
+                image.onclick =
+                    function () {
+                        window.open(
+                            signedData.signedUrl,
+                            "_blank"
+                        );
+                    };
+
+                attachmentElement.appendChild(
+                    image
+                );
+
+            } else {
+
+                const fileLink =
+                    document.createElement("a");
+
+                fileLink.href =
+                    signedData.signedUrl;
+
+                fileLink.target =
+                    "_blank";
+
+                fileLink.rel =
+                    "noopener noreferrer";
+
+                fileLink.textContent =
+                    "📎 " +
+                    attachment.file_name;
+
+                attachmentElement.appendChild(
+                    fileLink
+                );
+
+            }
+
+        } else {
+
+            const unavailable =
+                document.createElement("div");
+
+            unavailable.textContent =
+                "📎 " +
+                attachment.file_name +
+                " (preview unavailable)";
+
+            attachmentElement.appendChild(
+                unavailable
+            );
+        }
+
+
+        messagesContainer.appendChild(
+            attachmentElement
+        );
+    }
+
+    messagesContainer.scrollTop =
+        messagesContainer.scrollHeight;
+}
 }
 // =========================================
 // ADMIN SEND SUPPORT REPLY
