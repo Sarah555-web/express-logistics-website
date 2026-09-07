@@ -634,6 +634,7 @@ const {
 if (attachmentRecordError) {
     throw attachmentRecordError;
 }
+
 /* SHOW ATTACHMENT IN CHAT */
 const attachmentMessage =
     document.createElement("div");
@@ -644,25 +645,9 @@ attachmentMessage.style.marginBottom = "8px";
 attachmentMessage.style.borderRadius = "10px";
 
 if (file.type.startsWith("image/")) {
+
     const image =
         document.createElement("img");
-
-    const {
-    data: signedUrlData,
-    error: signedUrlError
-} = await supportClient.storage
-    .from("support_attachments")
-    .createSignedUrl(
-        filePath,
-        60 * 60
-    );
-
-if (signedUrlError) {
-    throw signedUrlError;
-}
-
-image.src =
-    signedUrlData.signedUrl;
 
     image.alt = file.name;
 
@@ -672,7 +657,37 @@ image.src =
     image.style.display = "block";
     image.style.marginBottom = "6px";
 
-    attachmentMessage.appendChild(image);
+    /* CREATE TEMPORARY SECURE URL */
+    const {
+        data: signedUrlData,
+        error: signedUrlError
+    } = await supportClient.storage
+        .from("support_attachments")
+        .createSignedUrl(
+            filePath,
+            60 * 60
+        );
+
+    if (signedUrlError) {
+        console.error(
+            "Signed URL error:",
+            signedUrlError
+        );
+
+        image.alt =
+            file.name +
+            " (preview unavailable)";
+    } else if (
+        signedUrlData &&
+        signedUrlData.signedUrl
+    ) {
+        image.src =
+            signedUrlData.signedUrl;
+
+        attachmentMessage.appendChild(
+            image
+        );
+    }
 }
 
 const fileLabel =
@@ -693,30 +708,11 @@ messagesBox.appendChild(
 
 messagesBox.scrollTop =
     messagesBox.scrollHeight;
+
 alert(
     file.name +
     " uploaded successfully."
 );
-                
-
-            } catch (error) {
-                console.error(
-                    "Attachment upload error:",
-                    error
-                );
-
-                alert(
-                    error.message ||
-                    "Unable to upload attachment."
-                );
-            }
-        }
-
-        attachmentInput.value = "";
-    }
-);
-       
-
         /* =================================
            REAL-TIME ADMIN REPLIES
         ================================= */
