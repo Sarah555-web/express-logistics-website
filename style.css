@@ -2941,20 +2941,7 @@ body > footer p {
     }
 
 }
-/* Loading truck background */
-body {
-    background-image:
-        linear-gradient(
-            rgba(245, 248, 252, 0.70),
-            rgba(245, 248, 252, 0.70)
-        ),
-        url("pexels-chris-f-38966-17631317.jpg");
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 /* Improve text readability over background image */
 body {
     color: #061a33;
