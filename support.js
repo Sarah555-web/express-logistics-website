@@ -116,6 +116,15 @@ document.addEventListener(
             document.getElementById(
                 "sendSupportMessage"
             );
+       const attachmentButton =
+    document.getElementById(
+        "supportAttachmentButton"
+    );
+
+const attachmentInput =
+    document.getElementById(
+        "supportAttachmentInput"
+    );
 
 
         const messagesBox =
@@ -501,13 +510,22 @@ try {
         ================================= */
 
         if (sendButton) {
-
-            sendButton.addEventListener(
+ sendButton.addEventListener(
                 "click",
                 sendMessage
             );
 
         }
+       /* ATTACHMENT FILE PICKER */
+if (attachmentButton && attachmentInput) {
+    attachmentButton.addEventListener(
+        "click",
+        function () {
+            attachmentInput.click();
+        }
+    );
+}
+       
 
         /* =================================
            REAL-TIME ADMIN REPLIES
