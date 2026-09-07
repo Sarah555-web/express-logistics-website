@@ -713,6 +713,24 @@ alert(
     file.name +
     " uploaded successfully."
 );
+
+            } catch (error) {
+                console.error(
+                    "Attachment upload error:",
+                    error
+                );
+
+                alert(
+                    error.message ||
+                    "Unable to upload attachment."
+                );
+            }
+        }
+
+        attachmentInput.value = "";
+    }
+);
+
         /* =================================
            REAL-TIME ADMIN REPLIES
         ================================= */
