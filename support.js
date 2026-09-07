@@ -634,7 +634,57 @@ const {
 if (attachmentRecordError) {
     throw attachmentRecordError;
 }
+/* SHOW ATTACHMENT IN CHAT */
+const attachmentMessage =
+    document.createElement("div");
 
+attachmentMessage.style.background = "#ffffff";
+attachmentMessage.style.padding = "10px";
+attachmentMessage.style.marginBottom = "8px";
+attachmentMessage.style.borderRadius = "10px";
+
+if (file.type.startsWith("image/")) {
+    const image =
+        document.createElement("img");
+
+    const {
+        data: publicUrlData
+    } = supportClient.storage
+        .from("support_attachments")
+        .getPublicUrl(filePath);
+
+    image.src =
+        publicUrlData.publicUrl;
+
+    image.alt = file.name;
+
+    image.style.maxWidth = "100%";
+    image.style.maxHeight = "180px";
+    image.style.borderRadius = "8px";
+    image.style.display = "block";
+    image.style.marginBottom = "6px";
+
+    attachmentMessage.appendChild(image);
+}
+
+const fileLabel =
+    document.createElement("div");
+
+fileLabel.textContent =
+    "📎 " + file.name;
+
+fileLabel.style.fontSize = "13px";
+
+attachmentMessage.appendChild(
+    fileLabel
+);
+
+messagesBox.appendChild(
+    attachmentMessage
+);
+
+messagesBox.scrollTop =
+    messagesBox.scrollHeight;
 alert(
     file.name +
     " uploaded successfully."
